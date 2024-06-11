@@ -164,7 +164,3 @@ generated_table = generate_new_rows(df, model, tokenizer, num_generated_rows)
 
 generated_table.to_csv('synthetic_data_gpt.csv', index=False)
 print(generated_table.head())
-
-# Evaluate the model on the validation set
-val_loss = model.evaluate(val_dataset)
-print(f"Validation loss: {val_loss}")
