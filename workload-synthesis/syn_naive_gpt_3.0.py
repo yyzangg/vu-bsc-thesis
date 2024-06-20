@@ -47,7 +47,7 @@ class TabularDataset(tf.data.Dataset):
 print("Creating dataset and data collator...")
 
 # Split data into training and validation sets
-train_data, val_data = train_test_split(data_blocks, test_size=0.1, random_state=19)
+train_data, val_data = train_test_split(data_blocks, test_size=0.1, random_state=0)
 
 # Use appropriate batch sizes
 train_batch_size = 3 # FixMe
