@@ -1,0 +1,22 @@
+Running pred_lr.py...
+--- Logistic Regression ---
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67       122
+           1       0.79      0.97      0.87      1492
+           2       0.58      0.17      0.26       311
+           3       0.00      0.00      0.00         2
+           4       0.00      0.00      0.00        18
+           5       0.00      0.00      0.00         1
+           6       0.83      0.09      0.17        54
+
+    accuracy                           0.79      2000
+   macro avg       0.46      0.25      0.28      2000
+weighted avg       0.76      0.79      0.74      2000
+
+Accuracy: 0.79
+Precision: 0.76
+Recall: 0.79
+F1-score: 0.74
+AUC-ROC: 0.73
+Script execution completed.
