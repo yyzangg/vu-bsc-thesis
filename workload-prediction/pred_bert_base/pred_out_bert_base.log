@@ -1,0 +1,52 @@
+Running pred_bert_base.py...
+Epoch 1, Loss: 0.8341268615722657
+Epoch 2, Loss: 0.7507434718608856
+Epoch 3, Loss: 0.7121570249795913
+Epoch 4, Loss: 0.6922501252889633
+Epoch 5, Loss: 0.6817198849916458
+Epoch 6, Loss: 0.6730969014763832
+Epoch 7, Loss: 0.6681362360715866
+Epoch 8, Loss: 0.6688824490904808
+Epoch 9, Loss: 0.6610661247968673
+Epoch 10, Loss: 0.6624770704507827
+Epoch 11, Loss: 0.6562662835121155
+Epoch 12, Loss: 0.6499979927539825
+Epoch 13, Loss: 0.6528993678092957
+Epoch 14, Loss: 0.6496484787464142
+Epoch 15, Loss: 0.6479787300825119
+Epoch 16, Loss: 0.6447596349716187
+Epoch 17, Loss: 0.6465778104066848
+Epoch 18, Loss: 0.6440992051959038
+Epoch 19, Loss: 0.641630168735981
+Epoch 20, Loss: 0.6470568146705628
+Epoch 21, Loss: 0.638351536989212
+Epoch 22, Loss: 0.6394450048208237
+Epoch 23, Loss: 0.6370704189538956
+Epoch 24, Loss: 0.6350590817332268
+Epoch 25, Loss: 0.6373240042924881
+Epoch 26, Loss: 0.6392586389780045
+Epoch 27, Loss: 0.6393628945946693
+Epoch 28, Loss: 0.636080587208271
+Epoch 29, Loss: 0.6327206639051437
+Epoch 30, Loss: 0.6313968763351441
+--- BERT-Base Model ---
+              precision    recall  f1-score   support
+
+     state_0       0.98      0.57      0.72       114
+     state_1       0.81      0.98      0.89      1495
+     state_2       0.71      0.25      0.37       318
+     state_3       0.00      0.00      0.00         1
+     state_4       0.00      0.00      0.00        15
+     state_5       0.00      0.00      0.00         1
+     state_6       0.38      0.09      0.14        56
+
+    accuracy                           0.81      2000
+   macro avg       0.41      0.27      0.30      2000
+weighted avg       0.78      0.81      0.77      2000
+
+Accuracy: 0.81
+Precision: 0.78
+Recall: 0.81
+F1-score: 0.77
+AUC-ROC: 0.86
+Script execution completed.

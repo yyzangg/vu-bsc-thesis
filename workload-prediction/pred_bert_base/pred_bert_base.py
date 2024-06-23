@@ -6,7 +6,7 @@ import torch.optim as optim
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler
-from transformers import DistilBertTokenizer, DistilBertModel, AdamW, get_linear_schedule_with_warmup
+from transformers import BertTokenizer, BertModel, AdamW, get_linear_schedule_with_warmup
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from tqdm import tqdm
 
@@ -25,7 +25,7 @@ dummy_text = ['[CLS]'] * len(df)
 # Train-test split
 X_train, X_test, y_train, y_test, text_train, text_test = train_test_split(X, y, dummy_text, test_size=0.2, random_state=0)
 
-# Scale data
+# Scale numerical data
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
@@ -36,8 +36,8 @@ X_test = torch.tensor(X_test, dtype=torch.float32)
 y_train = torch.tensor(y_train.values, dtype=torch.long)
 y_test = torch.tensor(y_test.values, dtype=torch.long)
 
-# Tokenize text data for DistilBERT
-tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
+# Tokenize text data for BERT
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 train_encodings = tokenizer(text_train, truncation=True, padding=True, max_length=10, return_tensors='pt')
 test_encodings = tokenizer(text_test, truncation=True, padding=True, max_length=10, return_tensors='pt')
 
@@ -53,10 +53,10 @@ test_data = TensorDataset(X_test, test_encodings['input_ids'], test_encodings['a
 test_sampler = SequentialSampler(test_data)
 test_dataloader = DataLoader(test_data, sampler=test_sampler, batch_size=batch_size)
 
-class DistilBERTWithNumericalFeatures(nn.Module):
-    def __init__(self, distilbert_model, numerical_input_dim, numerical_hidden_dim, output_dim):
-        super(DistilBERTWithNumericalFeatures, self).__init__()
-        self.distilbert = distilbert_model
+class BERTWithNumericalFeatures(nn.Module):
+    def __init__(self, bert_model, numerical_input_dim, numerical_hidden_dim, output_dim):
+        super(BERTWithNumericalFeatures, self).__init__()
+        self.bert = bert_model
         self.dropout = nn.Dropout(0.3)
         self.fc1 = nn.Linear(numerical_input_dim, numerical_hidden_dim)
         self.relu = nn.ReLU()
@@ -65,9 +65,9 @@ class DistilBERTWithNumericalFeatures(nn.Module):
         self.fc3 = nn.Linear(768 * 2, output_dim)
     
     def forward(self, numerical_input, input_ids, attention_mask):
-        # Process text with DistilBERT
-        distilbert_outputs = self.distilbert(input_ids=input_ids, attention_mask=attention_mask)
-        distilbert_pooled_output = distilbert_outputs.last_hidden_state[:, 0]  # Take [CLS] token representation
+        # Process text with BERT
+        bert_outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        bert_pooled_output = bert_outputs.pooler_output
 
         # Process numerical data
         numerical_output = self.fc1(numerical_input)
@@ -75,18 +75,18 @@ class DistilBERTWithNumericalFeatures(nn.Module):
         numerical_output = self.relu(numerical_output)
         numerical_output = self.fc2(numerical_output)
 
-        # Concatenate DistilBERT and numerical features
-        combined_output = torch.cat((distilbert_pooled_output, numerical_output), dim=1)
+        # Concatenate BERT and numerical features
+        combined_output = torch.cat((bert_pooled_output, numerical_output), dim=1)
         combined_output = self.dropout(combined_output)
 
         # Final classification layer
         logits = self.fc3(combined_output)
         return logits
 
-# Load DistilBERT model
-distilbert_model = DistilBertModel.from_pretrained('distilbert-base-uncased')
+# Load BERT model
+bert_model = BertModel.from_pretrained('bert-base-uncased')
 
-# Defone hyperparameters
+# Difine hyperparameters
 numerical_input_dim = X_train.shape[1]
 numerical_hidden_dim = 64
 output_dim = 7
@@ -94,7 +94,7 @@ learning_rate = 1e-4
 epochs = 30
 
 # Create the combined model
-model = DistilBERTWithNumericalFeatures(distilbert_model, numerical_input_dim, numerical_hidden_dim, output_dim)
+model = BERTWithNumericalFeatures(bert_model, numerical_input_dim, numerical_hidden_dim, output_dim)
 
 # Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()
@@ -129,7 +129,8 @@ train_model(model, train_dataloader, criterion, optimizer, scheduler, epochs)
 # Function to evaluate the model
 def evaluate_model(model, test_dataloader):
     model.eval()
-    predictions, true_labels, probabilities = [], [], []
+    predictions, true_labels = [], []
+    probabilities = []
     with torch.no_grad():
         for batch in test_dataloader:
             numerical_input, input_ids, attention_mask, labels = batch
@@ -152,7 +153,7 @@ auc_roc = roc_auc_score(true_labels, probabilities, multi_class='ovr')
 
 class_names = ['CANCELLED', 'COMPLETED', 'FAILED', 'NODE_FAIL', 'OUT_OF_MEMORY', 'REQUEUED', 'TIMEOUT']
 
-print("--- DistilBERT-Base Model ---")
+print("--- BERT-Base Model ---")
 print(classification_report(true_labels, predictions, target_names=class_names, digits=2))
 print(f"Accuracy: {accuracy:.2f}")
 print(f"Precision: {precision:.2f}")
