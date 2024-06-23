@@ -1,0 +1,52 @@
+Running pred_albert_base.py...
+Epoch 1, Loss: 0.8429719868898392
+Epoch 2, Loss: 0.7330032342672348
+Epoch 3, Loss: 0.7112735092639924
+Epoch 4, Loss: 0.6872385271787643
+Epoch 5, Loss: 0.6794720158576966
+Epoch 6, Loss: 0.6722983551025391
+Epoch 7, Loss: 0.6737093051671982
+Epoch 8, Loss: 0.6705448435544967
+Epoch 9, Loss: 0.6650037171840668
+Epoch 10, Loss: 0.6600014510154724
+Epoch 11, Loss: 0.657975989818573
+Epoch 12, Loss: 0.6527097367048263
+Epoch 13, Loss: 0.6502294038534164
+Epoch 14, Loss: 0.6531570774912834
+Epoch 15, Loss: 0.6490138951539993
+Epoch 16, Loss: 0.6461494901180267
+Epoch 17, Loss: 0.6445795817375183
+Epoch 18, Loss: 0.6445395060777664
+Epoch 19, Loss: 0.6459740223884582
+Epoch 20, Loss: 0.6419804536104202
+Epoch 21, Loss: 0.6457319095134735
+Epoch 22, Loss: 0.6427546626329422
+Epoch 23, Loss: 0.6443063191175461
+Epoch 24, Loss: 0.6376288729906082
+Epoch 25, Loss: 0.6436038199663162
+Epoch 26, Loss: 0.6373243759870529
+Epoch 27, Loss: 0.637543069422245
+Epoch 28, Loss: 0.6383952578306198
+Epoch 29, Loss: 0.6409585931301117
+Epoch 30, Loss: 0.6384479150772094
+--- ALBERT-Base Model ---
+              precision    recall  f1-score   support
+
+     state_0       1.00      0.50      0.67       122
+     state_1       0.80      0.99      0.89      1492
+     state_2       0.80      0.26      0.39       311
+     state_3       0.00      0.00      0.00         2
+     state_4       0.00      0.00      0.00        18
+     state_5       0.00      0.00      0.00         1
+     state_6       0.71      0.09      0.16        54
+
+    accuracy                           0.81      2000
+   macro avg       0.47      0.26      0.30      2000
+weighted avg       0.80      0.81      0.77      2000
+
+Accuracy: 0.81
+Precision: 0.80
+Recall: 0.81
+F1-score: 0.77
+AUC-ROC: 0.78
+Script execution completed.
