@@ -1,0 +1,32 @@
+Running pred_gpt.py...
+Epoch [1/5], Loss: 0.9190
+Validation Accuracy: 0.7460
+Epoch [2/5], Loss: 0.7113
+Validation Accuracy: 0.8050
+Epoch [3/5], Loss: 0.6185
+Validation Accuracy: 0.8045
+Epoch [4/5], Loss: 0.5857
+Validation Accuracy: 0.8065
+Epoch [5/5], Loss: 0.5589
+Validation Accuracy: 0.8040
+--- GPT-2 Model ---
+               precision    recall  f1-score   support
+
+    CANCELLED       0.98      0.51      0.67       122
+    COMPLETED       0.84      0.93      0.88      1492
+       FAILED       0.58      0.52      0.55       311
+    NODE_FAIL       0.00      0.00      0.00         2
+OUT_OF_MEMORY       0.00      0.00      0.00        18
+     REQUEUED       0.00      0.00      0.00         1
+      TIMEOUT       0.00      0.00      0.00        54
+
+     accuracy                           0.80      2000
+    macro avg       0.34      0.28      0.30      2000
+ weighted avg       0.77      0.80      0.78      2000
+
+Accuracy: 0.80
+Precision: 0.77
+Recall: 0.80
+F1-score: 0.78
+AUC-ROC: 0.80
+Script execution completed.

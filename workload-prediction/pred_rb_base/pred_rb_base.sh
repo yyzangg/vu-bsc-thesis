@@ -4,8 +4,8 @@
 #SBATCH -C gpunode                         # FixMe
 #SBATCH --gres=gpu:1                       # Number of GPUs needed
 
-#SBATCH --output=pred_out_bert_base.log          # Output file
-#SBATCH --error=pred_err_bert_base.log           # Error file
+#SBATCH --output=pred_out_rb_base.log      # Output file
+#SBATCH --error=pred_err_rb_base.log       # Error file
 
 . /etc/bashrc
 . /etc/profile.d/modules.sh
@@ -19,10 +19,10 @@ eval "$(pyenv init -)"
 # Set the desired Python version
 pyenv global 3.9.13
 
-cd /home/yzg244/pred_bert_base
+cd /home/yzg244/pred_rb_base
 
 # Run the Python script
-echo "Running pred_bert_base.py..."
-python pred_bert_base.py
+echo "Running pred_rb_base.py..."
+python pred_rb_base.py
 
 echo "Script execution completed."

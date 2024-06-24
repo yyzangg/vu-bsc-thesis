@@ -1,12 +1,13 @@
 #!/bin/bash
 #SBATCH --time=00:15:00                    # FixMe
 #SBATCH -N 1
-#SBATCH -C gpunode                         # FixMe
+#SBATCH -C TitanX                          # FixMe
 #SBATCH --gres=gpu:1                       # Number of GPUs needed
 
-#SBATCH --output=pred_out_bert_base.log          # Output file
-#SBATCH --error=pred_err_bert_base.log           # Error file
+#SBATCH --output=out_pred_gpt.log          # Output file
+#SBATCH --error=err_pred_gpt.log           # Error file
 
+# echo "Loading environment modules..."
 . /etc/bashrc
 . /etc/profile.d/modules.sh
 
@@ -19,10 +20,10 @@ eval "$(pyenv init -)"
 # Set the desired Python version
 pyenv global 3.9.13
 
-cd /home/yzg244/pred_bert_base
+cd /home/yzg244/pred_gpt
 
 # Run the Python script
-echo "Running pred_bert_base.py..."
-python pred_bert_base.py
+echo "Running pred_gpt.py..."
+python pred_gpt.py
 
 echo "Script execution completed."

@@ -1,0 +1,72 @@
+Running pred_rb_base.py...
+Epoch 1, Loss: 1.4429569721221924
+Epoch 2, Loss: 0.8863389757871628
+Epoch 3, Loss: 0.8312091312408447
+Epoch 4, Loss: 0.7847339798212052
+Epoch 5, Loss: 0.7493140523433686
+Epoch 6, Loss: 0.7184878691434861
+Epoch 7, Loss: 0.7010510182380676
+Epoch 8, Loss: 0.6941551934480668
+Epoch 9, Loss: 0.6821666026115417
+Epoch 10, Loss: 0.6781746115684509
+Epoch 11, Loss: 0.673414161324501
+Epoch 12, Loss: 0.6766251618862152
+Epoch 13, Loss: 0.671734638929367
+Epoch 14, Loss: 0.6668797527551651
+Epoch 15, Loss: 0.663964139699936
+Epoch 16, Loss: 0.6625769056081772
+Epoch 17, Loss: 0.66312957406044
+Epoch 18, Loss: 0.6615931146144867
+Epoch 19, Loss: 0.6551831901073456
+Epoch 20, Loss: 0.6604474196434021
+Epoch 21, Loss: 0.6542616389393806
+Epoch 22, Loss: 0.6525111486911773
+Epoch 23, Loss: 0.6534281132221222
+Epoch 24, Loss: 0.649437631726265
+Epoch 25, Loss: 0.648053540468216
+Epoch 26, Loss: 0.645446766257286
+Epoch 27, Loss: 0.6478033618927002
+Epoch 28, Loss: 0.6454586205482483
+Epoch 29, Loss: 0.6432772105932236
+Epoch 30, Loss: 0.6439612243175507
+Epoch 31, Loss: 0.6446418730020523
+Epoch 32, Loss: 0.644699634194374
+Epoch 33, Loss: 0.6368243557214737
+Epoch 34, Loss: 0.6369374562501907
+Epoch 35, Loss: 0.6402179635763169
+Epoch 36, Loss: 0.642003353536129
+Epoch 37, Loss: 0.6391266275644303
+Epoch 38, Loss: 0.636238636136055
+Epoch 39, Loss: 0.6394840075969696
+Epoch 40, Loss: 0.6349296357035636
+Epoch 41, Loss: 0.6349982094764709
+Epoch 42, Loss: 0.6355090856552124
+Epoch 43, Loss: 0.6364299930334091
+Epoch 44, Loss: 0.6378655805587768
+Epoch 45, Loss: 0.6355851119756699
+Epoch 46, Loss: 0.6309486218690872
+Epoch 47, Loss: 0.6362996474504471
+Epoch 48, Loss: 0.626661108136177
+Epoch 49, Loss: 0.6296696664094925
+Epoch 50, Loss: 0.634488270521164
+--- RoBERTa-Base Model ---
+              precision    recall  f1-score   support
+
+     state_0       1.00      0.50      0.67       122
+     state_1       0.83      0.96      0.89      1492
+     state_2       0.67      0.44      0.53       311
+     state_3       0.00      0.00      0.00         2
+     state_4       0.00      0.00      0.00        18
+     state_5       0.00      0.00      0.00         1
+     state_6       0.83      0.09      0.17        54
+
+    accuracy                           0.82      2000
+   macro avg       0.48      0.28      0.32      2000
+weighted avg       0.80      0.82      0.79      2000
+
+Accuracy: 0.82
+Precision: 0.80
+Recall: 0.82
+F1-score: 0.79
+AUC-ROC: 0.81
+Script execution completed.
