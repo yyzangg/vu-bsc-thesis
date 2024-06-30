@@ -1,0 +1,23 @@
+Running pred_rb_base.py...
+Unique predicted classes: {'state_3', 'state_6', 'state_5', 'state_0', 'state_4', 'state_2', 'state_1'}
+Unmapped classes: []
+--- Zero-Shot Classification Model ---
+              precision    recall  f1-score   support
+
+     state_0       0.14      0.66      0.23       642
+     state_1       0.83      0.39      0.53      7311
+     state_2       0.36      0.08      0.13      1688
+     state_3       0.00      0.00      0.00         6
+     state_4       0.00      0.01      0.00        68
+     state_5       0.00      0.00      0.00         6
+     state_6       0.03      0.19      0.06       279
+
+    accuracy                           0.35     10000
+   macro avg       0.19      0.19      0.14     10000
+weighted avg       0.67      0.35      0.43     10000
+
+Accuracy: 0.35
+Precision: 0.67
+Recall: 0.35
+F1-score: 0.43
+Script execution completed.

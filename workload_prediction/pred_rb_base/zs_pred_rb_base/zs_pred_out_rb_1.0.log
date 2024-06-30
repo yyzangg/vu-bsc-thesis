@@ -1,0 +1,21 @@
+Running pred_rb_base.py...
+--- Zero-Shot Classification Model ---
+               precision    recall  f1-score   support
+
+    CANCELLED       0.00      0.00      0.00       642
+    COMPLETED       0.00      0.00      0.00      7311
+       FAILED       0.00      0.00      0.00      1688
+    NODE_FAIL       0.00      0.00      0.00         6
+OUT_OF_MEMORY       0.00      0.00      0.00        68
+     REQUEUED       0.00      1.00      0.00         6
+      TIMEOUT       0.00      0.00      0.00       279
+
+     accuracy                           0.00     10000
+    macro avg       0.00      0.14      0.00     10000
+ weighted avg       0.00      0.00      0.00     10000
+
+Accuracy: 0.00
+Precision: 0.00
+Recall: 0.00
+F1-score: 0.00
+Script execution completed.
